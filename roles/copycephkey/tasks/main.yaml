@@ -1,0 +1,5 @@
+- name: Copy ceph.pub from main ceph
+  ansible.builtin.fetch:
+    src: /etc/ceph/ceph.pub
+    dest: /tmp/ceph.pub
+    flat: yes

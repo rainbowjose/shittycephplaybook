@@ -1,0 +1,14 @@
+- name: Download docker install script
+  ansible.builtin.shell: 
+    cmd: curl -fsSL https://get.docker.com -o get-docker.sh
+- name: Installing docker
+  become: yes
+  command: sh get-docker.sh
+- name: Add the user to docker
+  ansible.builtin.user:
+    name: rnbj
+    shell: /bin/bash
+    groups: docker
+    append: yes
+
+

@@ -1,0 +1,11 @@
+- name: sudo without password for rnbj
+  copy:
+    content: 'rnbj ALL=(ALL:ALL) NOPASSWD:ALL'
+    dest: /etc/sudoers
+    mode: 0440
+    validate: 'visudo -cf %s'
+
+- name: Set up authorized keys for the rnbj user
+  authorized_key: user=rnbj key="{{item}}"
+  with_file:
+    - /home/rnbj/.ssh/id_rsa.pub

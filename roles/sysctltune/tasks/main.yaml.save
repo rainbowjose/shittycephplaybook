@@ -1,0 +1,4 @@
+- name: tune sysctl
+    ansible.builtin.command:
+    cmd: /usr/bin/make_database.sh db_user db_name
+    creates: /path/to/database

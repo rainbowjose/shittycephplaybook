@@ -1,0 +1,8 @@
+- name: Install ntp
+  apt:
+    name: ntp
+    state: latest
+- name: Install ntpdate
+  apt:
+    name: ntpdate
+    state: latest

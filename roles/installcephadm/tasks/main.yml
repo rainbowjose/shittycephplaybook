@@ -1,0 +1,10 @@
+- name: Download cephadm install script
+  ansible.builtin.shell: 
+    cmd: curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
+- name: Change cephadm executable
+  ansible.builtin.file:
+    path: cephadm
+    mode: '0777'
+- name: Installing cephadm
+  become: yes
+  command: ./cephadm install
