@@ -7,8 +7,6 @@
     - dockerinstall
     - installntpntpdate
     - installcephadm
-    - copycephkey
-    - pushcephkey
 - hosts: ceph_key_server
   become: true
   roles:
