@@ -1,11 +1,11 @@
-- name: Push ceph.pub to others
-  ansible.builtin.copy:
-    src: /tmp/ceph.pub
-    dest: /etc/ceph/ceph.pub
-    owner: root
-    group: root
-    mode: '0644'
-    
+#- name: Push ceph.pub to others
+#  ansible.builtin.copy:
+#    src: /tmp/ceph.pub
+#    dest: /etc/ceph/ceph.pub
+#    owner: root
+#    group: root
+#    mode: '0644'
+#    
 - name: Set up authorized ceph keys for the root user
   authorized_key: user=root key="{{item}}"
   with_file:
