@@ -1,17 +1,17 @@
 ---
-- hosts: ceph_servers
-  become: true
-  roles:
-    - sysctltune
-    - addsudowpassw
-    - dockerinstall
-    - installntpntpdate
-    - installcephadm
+#- hosts: ceph_servers
+#  become: true
+#  roles:
+#    - sysctltune
+#    - addsudowpassw
+#    - dockerinstall
+#    - installntpntpdate
+#    - installcephadm
 - hosts: ceph_key_server
   become: true
   roles:
-    - copycephkey
+    - copycephkeys
 - hosts: ceph_servers
   become: true
   roles:
-    - pushcephkey
+    - pushcephkeys

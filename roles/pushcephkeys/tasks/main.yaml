@@ -1,0 +1,20 @@
+#- name: Push ceph.pub to others
+#  ansible.builtin.copy:
+#    src: /tmp/ceph.pub
+#    dest: /etc/ceph/ceph.pub
+#    owner: root
+#    group: root
+#    mode: '0644'
+#    
+- name: Set up authorized ceph keys for the root user
+  authorized_key: user=root key="{{item}}"
+  with_file:
+    - /tmp/ceph.pub
+- name: Copy a new "ceph.client.admin.keyring" file into place, backing up the original if it differs from the copied version
+  ansible.builtin.copy:
+    src: /tmp/ceph.client.admin.keyring
+    dest: /etc/ceph/ceph.client.admin.keyring
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
