@@ -1,0 +1,2 @@
+- name: configure passwordless ssh authentication on a remote machine
+  command: sshpass -p 1 ssh-copy-id -i /root/.ssh/id_rsa.pub -o StrictHostKeyChecking=no

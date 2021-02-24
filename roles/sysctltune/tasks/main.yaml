@@ -1,12 +1,12 @@
 - name: Add sysctl tune kernel.pid_max
   ansible.builtin.lineinfile:
     path: /etc/sysctl.conf
-    line: "kernel.pid_max: 4194303"
+    line: "kernel.pid_max = 4194303"
     create: yes
 - name: Add sysctl tune fs.aio-max-nr
   ansible.builtin.lineinfile:
     path: /etc/sysctl.conf
-    line: "fs.aio-max-nr: 1048576"
+    line: "fs.aio-max-nr = 1048576"
     create: yes
 - shell: sysctl -p --system
   become: yes

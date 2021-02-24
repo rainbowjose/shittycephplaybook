@@ -5,7 +5,7 @@
 #    owner: root
 #    group: root
 #    mode: '0644'
-#    
+# 
 - name: Set up authorized ceph keys for the root user
   authorized_key: user=root key="{{item}}"
   with_file:
