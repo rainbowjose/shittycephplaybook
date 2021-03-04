@@ -1,6 +1,6 @@
 - name: Download docker install script
-  ansible.builtin.shell: 
-    cmd: curl -fsSL https://get.docker.com -o get-docker.sh
+  become: yes
+  command: curl -fsSL https://get.docker.com -o get-docker.sh
 - name: Installing docker
   become: yes
   command: sh get-docker.sh

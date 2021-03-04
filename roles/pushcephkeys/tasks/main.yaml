@@ -6,6 +6,14 @@
 #    group: root
 #    mode: '0644'
 # 
+- name: Creates ceph directory
+  file:
+    path: /etc/ceph/
+    state: directory
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
 - name: Set up authorized ceph keys for the root user
   authorized_key: user=root key="{{item}}"
   with_file:
